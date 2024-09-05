@@ -1,4 +1,126 @@
 @charset "UTF-8";
 /* kompilera sass till css när du är klar */
+@import "normalize.css";
+.header {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+}
+
+.nav {
+  display: flex;
+  position: relative;
+}
+.nav__item {
+  height: 70vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  border-radius: 0 0 80px 0;
+  border: 1px solid black;
+  display: flex;
+  overflow: hidden;
+}
+
+#nav-start {
+  width: 80vw;
+  background-color: rgb(237, 234, 226);
+  z-index: 3;
+  transition: width 0.3s ease;
+}
+#nav-start.compressed {
+  width: 10vw;
+}
+
+#nav-work-tab {
+  width: 90vw;
+  background-color: rgb(173, 186, 254);
+  z-index: 2;
+  transition: width 0.3s ease;
+}
+#nav-work-tab.compressed {
+  width: 20vw;
+}
+
+#nav-education-tab {
+  width: 100vw;
+  background-color: #000;
+  z-index: 1;
+}
+
+.profile-intro {
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+  padding-top: 20px;
+  padding-left: 60px;
+  margin-bottom: 50px;
+}
+.profile-intro__headline {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.profile-intro__paragraf {
+  font-family: Arial;
+}
+
+.image-section {
+  width: 40%;
+  display: flex;
+}
+.image-section__profile-image {
+  margin-bottom: 80px;
+  margin-left: 80px;
+  width: 200px;
+  height: auto;
+}
+
+.arrow-container {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  z-index: 3;
+}
+.arrow-container__startTabArrow {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+.arrow-container__workTabArrow {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.no-rotate {
+  transform: none !important;
+}
+
+.content-container {
+  border: 1px solid black;
+  width: 100vw;
+  height: 50px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  font-family: Arial;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  margin: 0 auto;
+  background-color: rgb(237, 234, 226);
+}
+
+.hidden {
+  display: none;
+}
 
 /*# sourceMappingURL=main.css.map */

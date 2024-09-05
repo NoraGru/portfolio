@@ -1,1 +1,25 @@
 /* kompilera sass till css när du är klar */
+
+//resetts
+@import "normalize.css";
+@import "mixins";
+@import "header";
+@import "content";
+@import "footer";
+@import "variables";
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+body {
+   line-height: 1.6;
+   color: #333;
+   margin: 0 auto;
+   background-color: $primary-color;
+}
+
+.hidden {
+   display: none;
+}
