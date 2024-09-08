@@ -2,7 +2,7 @@
 
 .content-container {
    border: $nav-border-black;
-   width: $nav-width-100;
+   width: $nav-width-large;
    height: 50px;
    margin-top: 50px;
    display: flex;
@@ -10,4 +10,10 @@
    align-items: center;
    font-size: $content-font-size;
    font-family: $primary-font;
+}
+//styles for main-content banner ended
+.big-scoop-projekt {
+   display: flex;
+   height: auto;
+   width: 100%;
 }
