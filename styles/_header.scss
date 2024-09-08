@@ -34,62 +34,94 @@
       padding-left: $nav-padding-left;
       margin-bottom: $nav-margin-bottom;
    }
-   .tab-content {
-      width: auto;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      h1 {
-         rotate: $rotationheading;
-         color: $whitecolor;
-      }
+}
+//generall styles for nav parent ended
+
+.tab-content {
+   width: auto;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   h1 {
+      color: $whitecolor;
+      position: absolute;
    }
 }
-//generall styles for nav ended
 
 #nav-start {
-   width: $nav-width-80;
+   width: $nav-width-small;
    background-color: $primary-color;
    z-index: $nav-z-index-3;
 
    @include transition(width);
    &.compressed {
-      width: $nav-width-folded-10;
+      width: $nav-width-folded-small;
+   }
+   .tab-content {
+      // h1 {
+      //    rotate: $rotationheading;
+      //    top: 110px;
+      //    right: -100px;
+      //    white-space: nowrap;
+      // }
+      // stilsättning för stäng flik
+      h1 {
+         top: 10px;
+         left: 40px;
+      }
+      // stilsättning för öppen flik
    }
 }
 
-.image-section {
-   width: 40%;
-   display: flex;
-   &__profile-image {
-      margin-bottom: 80px;
-      margin-left: 80px;
-      width: $max-width-pic;
-      height: auto;
-   }
-} //first nav-block ended
-
 #nav-work-tab {
-   width: $nav-width-90;
+   width: $nav-width-medium;
    background-color: $secondary-style-color;
    z-index: $nav-z-index-2;
    @include transition(width);
    &.compressed {
-      width: $nav-width-folded-20;
+      width: $nav-width-folded-medium;
+   }
+   .tab-content {
+      h1 {
+         rotate: $rotationheading;
+         top: 85px;
+         right: 10px;
+      }
+      //stilsättning stängd åt höger
+      // h1 {
+      //    rotate: $rotationheading;
+      //    top: 85px;
+      //    right: -80px;
+      // }
+      //stilsättning flik stäng åt vänster
    }
 }
-//second nav-block ended
+
 #nav-education-tab {
-   width: $nav-width-100;
+   width: $nav-width-large;
    background-color: $primary-style-color;
    z-index: $nav-z-index-1;
+   .tab-content {
+      h1 {
+         rotate: $rotationheading;
+         top: 40px;
+         right: 50px;
+      }
+      //stilsättning flik 1 öppen
+      // h1 {
+      //    rotate: $rotationheading;
+      //    top: 40px;
+      //    right: -35px;
+      // }
+      //stilsättning flik öppen
+   }
 }
-//third nav-block ended
+//headins for navblock ended
 
 .arrow-container {
    position: absolute;
-   bottom: $purple-arrow-possition-bottom;
-   right: $purple-arrow-possition-right;
+   bottom: $purple-arrow-position-bottom;
+   right: $purple-arrow-position-right;
    z-index: $nav-z-index-3;
 
    &__startTabArrow {
@@ -103,4 +135,4 @@
    transform: none !important;
 }
 
-//styles for nav-arrows
+//styles for nav-arrows ended
