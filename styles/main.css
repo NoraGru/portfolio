@@ -22,25 +22,56 @@
   display: flex;
   overflow: hidden;
 }
+.nav .nav-content-container {
+  display: flex;
+}
+.nav .nav-content {
+  position: relative;
+  overflow: hidden;
+  width: 90vw;
+  padding-top: 20px;
+  padding-left: 60px;
+  margin-bottom: 50px;
+}
+
+.tab-content {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.tab-content h1 {
+  color: white;
+  position: absolute;
+}
 
 #nav-start {
   width: 80vw;
   background-color: rgb(237, 234, 226);
   z-index: 3;
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 #nav-start.compressed {
   width: 10vw;
+}
+#nav-start .tab-content h1 {
+  top: 10px;
+  left: 40px;
 }
 
 #nav-work-tab {
   width: 90vw;
   background-color: rgb(173, 186, 254);
   z-index: 2;
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 #nav-work-tab.compressed {
   width: 20vw;
+}
+#nav-work-tab .tab-content h1 {
+  rotate: 90deg;
+  top: 85px;
+  right: 10px;
 }
 
 #nav-education-tab {
@@ -48,31 +79,10 @@
   background-color: #000;
   z-index: 1;
 }
-
-.profile-intro {
-  position: relative;
-  overflow: hidden;
-  width: 60%;
-  padding-top: 20px;
-  padding-left: 60px;
-  margin-bottom: 50px;
-}
-.profile-intro__headline {
-  font-family: Arial, Helvetica, sans-serif;
-}
-.profile-intro__paragraf {
-  font-family: Arial;
-}
-
-.image-section {
-  width: 40%;
-  display: flex;
-}
-.image-section__profile-image {
-  margin-bottom: 80px;
-  margin-left: 80px;
-  width: 200px;
-  height: auto;
+#nav-education-tab .tab-content h1 {
+  rotate: 90deg;
+  top: 40px;
+  right: 50px;
 }
 
 .arrow-container {
@@ -83,11 +93,11 @@
 }
 .arrow-container__startTabArrow {
   transform: rotate(0deg);
-  transition: transform 0.3s ease;
+  transition: transform(3s ease);
 }
 .arrow-container__workTabArrow {
   transform: rotate(0deg);
-  transition: transform 0.3s ease;
+  transition: transform(3s ease);
 }
 
 .no-rotate {
@@ -106,6 +116,12 @@
   font-family: Arial;
 }
 
+.big-scoop-projekt {
+  display: flex;
+  height: auto;
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -117,6 +133,15 @@ body {
   color: #333;
   margin: 0 auto;
   background-color: rgb(237, 234, 226);
+}
+
+h1 {
+  font-size: 30px;
+  font-family: Arial;
+}
+
+p {
+  font-family: Arial;
 }
 
 .hidden {
