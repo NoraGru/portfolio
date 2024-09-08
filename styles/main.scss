@@ -20,6 +20,14 @@ body {
    background-color: $primary-color;
 }
 
+h1 {
+   font-size: $section-heading;
+   font-family: $primary-font;
+}
+p {
+   font-family: $primary-font;
+}
+
 .hidden {
    display: none;
 }
