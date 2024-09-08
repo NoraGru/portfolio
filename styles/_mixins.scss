@@ -1,5 +1,11 @@
 // _mixins.scss
 
-@mixin transition($properties, $duration: 0.3s, $ease: ease) {
+@mixin transition($properties, $duration: 0.4s, $ease: ease) {
    transition: $properties $duration $ease;
 }
+@mixin arrowStyles($rotation: 0deg, $duration: 3s) {
+   transform: rotate($rotation);
+   transition: transform($duration ease);
+}
+
+// @mixin contentContainer();
