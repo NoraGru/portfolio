@@ -1,4 +1,9 @@
 // _mixins.scss
+//mixins främst är användbara för att återanvända större block av kod där samma regler tillämpas flera gånger med små variationer.
+// När ska mixin användas?
+//1. fler än 2 gemensamma stilar.
+//2. återandvändbarhet i flera delar av projektet.
+//3. Gemensamma föränringar av stil över hela projektet.
 
 @mixin transition($properties, $duration: 0.4s, $ease: ease) {
    transition: $properties $duration $ease;
