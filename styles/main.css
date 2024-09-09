@@ -41,6 +41,7 @@
   align-items: center;
 }
 .tab-content h1 {
+  transition: all 0.4s ease-in-out;
   color: white;
   position: absolute;
 }
@@ -54,9 +55,15 @@
 #nav-start.compressed {
   width: 10vw;
 }
-#nav-start .tab-content h1 {
+#nav-start .tab-content .open {
   top: 10px;
   left: 40px;
+}
+#nav-start .tab-content .closed {
+  rotate: 90deg;
+  top: 110px;
+  right: -100px;
+  white-space: nowrap;
 }
 
 #nav-work-tab {
@@ -68,10 +75,15 @@
 #nav-work-tab.compressed {
   width: 20vw;
 }
-#nav-work-tab .tab-content h1 {
+#nav-work-tab .tab-content .closed {
   rotate: 90deg;
   top: 85px;
   right: 10px;
+}
+#nav-work-tab .tab-content .open {
+  rotate: 90deg;
+  top: 85px;
+  right: -80px;
 }
 
 #nav-education-tab {
@@ -79,10 +91,15 @@
   background-color: #000;
   z-index: 1;
 }
-#nav-education-tab .tab-content h1 {
+#nav-education-tab .tab-content .open {
   rotate: 90deg;
   top: 40px;
   right: 50px;
+}
+#nav-education-tab .tab-content .closed {
+  rotate: 90deg;
+  top: 40px;
+  right: -35px;
 }
 
 .arrow-container {
