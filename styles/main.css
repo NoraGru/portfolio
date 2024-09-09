@@ -35,7 +35,7 @@
 }
 
 .tab-content {
-  width: auto;
+  width: 0%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -44,6 +44,7 @@
   transition: all 0.4s ease-in-out;
   color: white;
   position: absolute;
+  white-space: nowrap;
 }
 
 #nav-start {
@@ -62,8 +63,7 @@
 #nav-start .tab-content .closed {
   rotate: 90deg;
   top: 110px;
-  right: -100px;
-  white-space: nowrap;
+  right: -120px;
 }
 
 #nav-work-tab {
@@ -78,12 +78,12 @@
 #nav-work-tab .tab-content .closed {
   rotate: 90deg;
   top: 85px;
-  right: 10px;
+  right: -20px;
 }
 #nav-work-tab .tab-content .open {
   rotate: 90deg;
   top: 85px;
-  right: -80px;
+  right: -110px;
 }
 
 #nav-education-tab {
@@ -94,12 +94,12 @@
 #nav-education-tab .tab-content .open {
   rotate: 90deg;
   top: 40px;
-  right: 50px;
+  right: -60px;
 }
 #nav-education-tab .tab-content .closed {
   rotate: 90deg;
   top: 40px;
-  right: -35px;
+  right: 25px;
 }
 
 .arrow-container {
@@ -137,6 +137,10 @@
   display: flex;
   height: auto;
   width: 100%;
+}
+
+h1 {
+  padding-left: 60px;
 }
 
 * {
