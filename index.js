@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Function called with:", h1Elements);
       h1Elements.forEach((h1) => {
          console.log(
-            `before resuestedAnimationFrame h1: ${
+            `before requestedAnimationFrame h1: ${
                h1.textContent
             }, classes: ${Array.from(h1.classList).join(" ")}`
          );
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
          requestAnimationFrame(() => {
             console.log(
-               `insides resuestedAnimationFrame h1: ${
+               `insides requestedAnimationFrame h1: ${
                   h1.textContent
                }, classes: ${Array.from(h1.classList).join(" ")}`
             );
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
                h1.classList.add("open");
             }
             console.log(
-               `after resuestedAnimationFrame h1: ${
+               `after requestedAnimationFrame h1: ${
                   h1.textContent
                }, classes: ${Array.from(h1.classList).join(" ")}`
             );
