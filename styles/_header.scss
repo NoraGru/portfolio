@@ -43,6 +43,7 @@
    display: flex;
    align-items: center;
    h1 {
+      @include transition(all, 0.4s, ease-in-out);
       color: $whitecolor;
       position: absolute;
    }
@@ -58,18 +59,18 @@
       width: $nav-width-folded-small;
    }
    .tab-content {
-      // h1 {
-      //    rotate: $rotationheading;
-      //    top: 110px;
-      //    right: -100px;
-      //    white-space: nowrap;
-      // }
-      // stilsättning för stäng flik
-      h1 {
+      .open {
          top: 10px;
          left: 40px;
       }
       // stilsättning för öppen flik
+      .closed {
+         rotate: $rotationheading;
+         top: 110px;
+         right: -100px;
+         white-space: nowrap;
+      }
+      // stilsättning för stäng flik
    }
 }
 
@@ -82,17 +83,17 @@
       width: $nav-width-folded-medium;
    }
    .tab-content {
-      h1 {
+      .closed {
          rotate: $rotationheading;
          top: 85px;
          right: 10px;
       }
       //stilsättning stängd åt höger
-      // h1 {
-      //    rotate: $rotationheading;
-      //    top: 85px;
-      //    right: -80px;
-      // }
+      .open {
+         rotate: $rotationheading;
+         top: 85px;
+         right: -80px;
+      }
       //stilsättning flik stäng åt vänster
    }
 }
@@ -102,17 +103,17 @@
    background-color: $primary-style-color;
    z-index: $nav-z-index-1;
    .tab-content {
-      h1 {
+      .open {
          rotate: $rotationheading;
          top: 40px;
          right: 50px;
       }
       //stilsättning flik 1 öppen
-      // h1 {
-      //    rotate: $rotationheading;
-      //    top: 40px;
-      //    right: -35px;
-      // }
+      .closed {
+         rotate: $rotationheading;
+         top: 40px;
+         right: -35px;
+      }
       //stilsättning flik öppen
    }
 }
