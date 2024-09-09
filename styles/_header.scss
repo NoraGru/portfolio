@@ -38,7 +38,7 @@
 //generall styles for nav parent ended
 
 .tab-content {
-   width: auto;
+   width: 0%;
    height: 100%;
    display: flex;
    align-items: center;
@@ -46,6 +46,7 @@
       @include transition(all, 0.4s, ease-in-out);
       color: $whitecolor;
       position: absolute;
+      white-space: nowrap;
    }
 }
 
@@ -67,8 +68,7 @@
       .closed {
          rotate: $rotationheading;
          top: 110px;
-         right: -100px;
-         white-space: nowrap;
+         right: -120px;
       }
       // stilsättning för stäng flik
    }
@@ -86,15 +86,16 @@
       .closed {
          rotate: $rotationheading;
          top: 85px;
-         right: 10px;
+         right: -20px;
       }
       //stilsättning stängd åt höger
       .open {
          rotate: $rotationheading;
          top: 85px;
-         right: -80px;
+         right: -110px;
       }
-      //stilsättning flik stäng åt vänster
+      //stilsättning flik stäng åt vänster och öppen
+      //note that open and close-left is collected in the open tag
    }
 }
 
@@ -106,13 +107,13 @@
       .open {
          rotate: $rotationheading;
          top: 40px;
-         right: 50px;
+         right: -60px;
       }
       //stilsättning flik 1 öppen
       .closed {
          rotate: $rotationheading;
          top: 40px;
-         right: -35px;
+         right: 25px;
       }
       //stilsättning flik öppen
    }
