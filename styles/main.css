@@ -79,12 +79,12 @@
 }
 #nav-work-tab .tab-content .closed {
   rotate: 90deg;
-  top: 85px;
+  top: 90px;
   right: 15px;
 }
 #nav-work-tab .tab-content .open {
   rotate: 90deg;
-  top: 85px;
+  top: 90px;
   right: -100px;
 }
 
@@ -95,12 +95,12 @@
 }
 #nav-education-tab .tab-content .open {
   rotate: 90deg;
-  top: 40px;
+  top: 45px;
   right: -45px;
 }
 #nav-education-tab .tab-content .closed {
   rotate: 90deg;
-  top: 40px;
+  top: 45px;
   right: 60px;
 }
 
@@ -143,11 +143,41 @@
 
 div .portfolio-heading {
   padding-left: 60px;
-  padding-right: 60px;
   margin-left: 60px;
   margin-right: 60px;
   font-size: 60px;
   border-bottom: 1px solid black;
+}
+
+.own-projects {
+  margin: 60px auto;
+  max-width: 1400px;
+  overflow: hidden;
+  height: 543px;
+}
+.own-projects h2 {
+  margin-left: 60px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.own-projects .project-slide {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: auto;
+  height: 420px;
+  white-space: nowrap;
+}
+
+.project-container {
+  height: auto;
+  width: 350px;
+  flex-shrink: 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 * {
