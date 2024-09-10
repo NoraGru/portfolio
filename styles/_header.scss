@@ -87,13 +87,13 @@
    .tab-content {
       .closed {
          rotate: $rotationheading;
-         top: 85px;
+         top: $work-heading-top-position;
          right: 15px;
       }
       //stilsättning stängd åt höger
       .open {
          rotate: $rotationheading;
-         top: 85px;
+         top: $work-heading-top-position;
          right: -100px;
       }
       //stilsättning flik stäng åt vänster och öppen
@@ -108,13 +108,13 @@
    .tab-content {
       .open {
          rotate: $rotationheading;
-         top: 40px;
+         top: $education-heading-top-position;
          right: -45px;
       }
       //stilsättning flik 1 öppen
       .closed {
          rotate: $rotationheading;
-         top: 40px;
+         top: $education-heading-top-position;
          right: 60px;
       }
       //stilsättning flik öppen
