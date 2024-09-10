@@ -1,3 +1,6 @@
+import { projectsData } from "./projectsData.js";
+import { createProjectContainer } from "./projectTemplate.js";
+
 document.addEventListener("DOMContentLoaded", () => {
    const navItem = document.querySelectorAll(".nav__item");
    const startTab = document.getElementById("nav-start");
@@ -112,3 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
    });
 });
 //functions for header and nav ended
+
+projectsData.forEach((project) => {
+   createProjectContainer(project);
+});
