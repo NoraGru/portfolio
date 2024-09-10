@@ -11,47 +11,46 @@
          <div class="header">
             <div class="nav">
                <div class="nav__item nav__compressed" id="nav-start">
-                  <!-- <div class="overlay"></div> -->
-                  <div class="nav-content-container">
+                  <div class="tab-content">
+                     <h1 class="open">Front-end Developer</h1>
+                     <div class="arrow-container">
+                        <img
+                           src="images/purplearrow.svg"
+                           alt="purple arrow"
+                           class="arrow-container__startTabArrow" />
+                     </div>
+                     <!-- flytta tab-content hit, gör nav__item relativ, fixa eventuella förändringa i js och i scss -->
+                     <div class="nav-content-container"></div>
                      <div class="nav-content">
                         <p class="nav-content__paragraf"></p>
-                     </div>
-                     <div class="tab-content">
-                        <h1 class="open">Front-end Developer</h1>
-                        <div class="arrow-container">
-                           <img
-                              src="images/purplearrow.svg"
-                              alt="purple arrow"
-                              class="arrow-container__startTabArrow" />
-                        </div>
                      </div>
                   </div>
                </div>
                <div class="nav__item nav__compressed" id="nav-work-tab">
-                  <div class="nav-content-container">
-                     <div class="nav-content"></div>
-                     <div class="tab-content">
-                        <h1 class="closed">Work experience</h1>
-                        <div class="arrow-container">
-                           <img
-                              src="images/orangearrow.svg"
-                              alt="orange arrow"
-                              class="arrow-container__workTabArrow" />
-                        </div>
+                  <div class="tab-content">
+                     <h1 class="closed">Work experience</h1>
+                     <div class="arrow-container">
+                        <img
+                           src="images/orangearrow.svg"
+                           alt="orange arrow"
+                           class="arrow-container__workTabArrow" />
+                     </div>
+                     <div class="nav-content-container">
+                        <div class="nav-content"></div>
                      </div>
                   </div>
                </div>
                <div class="nav__item" id="nav-education-tab">
-                  <div class="nav-content-container">
-                     <div class="nav-content"></div>
-                     <div class="tab-content">
-                        <h1 class="closed">Education</h1>
-                     </div>
+                  <div class="tab-content">
+                     <h1 class="closed">Education</h1>
                      <div class="arrow-container">
                         <img
                            src="images/whitearrow.svg"
                            alt="white arrow"
                            class="arrow-container__educationtabarrow" />
+                     </div>
+                     <div class="nav-content-container">
+                        <div class="nav-content"></div>
                      </div>
                   </div>
                </div>
@@ -68,7 +67,7 @@
          <div>Git</div>
       </div>
       <main>
-         <div><h1>Portfolio</h1></div>
+         <div><h1 class="portfolio-heading">Portfolio</h1></div>
          <div class="big-scoop-projekt">
             <div class="project-container"></div>
             <div class="project-container"></div>
