@@ -17,3 +17,43 @@
    height: auto;
    width: 100%;
 }
+div {
+   .portfolio-heading {
+      padding-left: $nav-padding-left;
+      margin-left: 60px;
+      margin-right: 60px;
+      font-size: $mainH1;
+      border-bottom: $nav-border-black;
+   }
+}
+
+.own-projects {
+   margin: 60px auto;
+   max-width: 1400px;
+   overflow: hidden;
+   height: 543px;
+
+   h2 {
+      margin-left: 60px;
+      margin-bottom: 20px;
+      font-size: $fontsize-h2;
+   }
+   .project-slide {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      width: auto;
+      height: 420px;
+      white-space: nowrap;
+   }
+}
+.project-container {
+   height: auto;
+   width: 350px;
+   flex-shrink: 0;
+   border: 1px solid black;
+   border-radius: 10px;
+   display: inline-block;
+   margin-bottom: 20px;
+}
