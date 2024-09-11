@@ -17,6 +17,13 @@ export function createProjectContainer(project) {
    //create img container
    const projectImg = document.createElement("div");
    projectImg.classList.add("project-img");
+
+   // create img-element
+   const imgElement = document.createElement("img");
+   imgElement.classList.add("image-element");
+   imgElement.src = project.imgSrc;
+   projectImg.appendChild(imgElement);
+
    //create webassets container
    const webAssets = document.createElement("div");
    webAssets.classList.add("web-assets");
@@ -43,7 +50,7 @@ export function createProjectContainer(project) {
    projectName.textContent = project.name;
    //create webassets container
    const webAssetsCopy = document.createElement("div");
-   webAssetsCopy.classList.add("web-assets");
+   webAssetsCopy.classList.add("web-assets-copy");
 
    project.technologies.forEach((tech) => {
       const assetDiv = document.createElement("div");
