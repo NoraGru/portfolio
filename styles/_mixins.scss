@@ -13,4 +13,20 @@
    transition: transform($duration ease);
 }
 
+@mixin web-asset-styles {
+   color: rgba(253, 183, 119, 1);
+   font-size: 20px;
+   font-weight: 600;
+   background-color: $primary-color;
+   padding: 13px 15px;
+   margin: 4px;
+   border: 1px solid rgba(253, 183, 119, 1);
+   border-radius: 20px; /* Rundade kanter, justera efter behov */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 20px; /* Sätt höjd för att centrera vertikalt */
+   text-align: center; /* Centrera text horisontellt */
+}
+
 // @mixin contentContainer();
