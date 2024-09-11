@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 .content-container {
    width: $nav-width-large;
@@ -30,19 +31,20 @@ div {
    padding: 0px 20px;
    overflow: hidden;
 
-   h2 {
+   .projects-heading-main {
       margin-left: 60px;
       margin-bottom: 20px;
       font-size: $fontsize-h2;
    }
-   .project-slide {
+   #project-slide {
       width: auto;
       height: 440px;
       white-space: nowrap;
       display: flex;
       gap: 30px;
       overflow-x: auto;
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
+      scroll-snap-type: x mandatory;
    }
 }
 .project-container {
@@ -52,34 +54,66 @@ div {
    height: 400px;
    margin-bottom: 20px;
    flex-shrink: 0;
-   display: inline-block;
+   display: flex;
    border: $nav-border-black;
    border-radius: $radius;
+   cursor: pointer;
+   @include transition(width, $duration: 0.7s, $ease: ease-in-out);
+
+   &.expanded {
+      width: 100%;
+      scroll-snap-align: center;
+   }
 
    .project-content-container {
-      width: 100%;
+      width: 100%; //100% i ett icke expanderat läge, 300px i ett expanderat
       height: 100%;
       border-radius: $radius;
       position: relative;
+      pointer-events: none;
+
+      &.expanded {
+         width: 300px;
+      }
    }
+
    .overlay {
       width: 100%;
       height: 100%;
       top: $top0;
       left: $left0;
-      background-color: rgba(173, 186, 254, 0.2); // dölj vid expandering
+      background-color: rgba(173, 186, 254, 0.2);
       border-radius: $radius;
       position: absolute;
       z-index: 2;
+      pointer-events: none; //tillåter clickevent att gå igenom overlay
+
+      // När containern är expanderad
+      &.expanded {
+         display: none !important;
+      }
    }
    .project-img {
-      width: 350px;
+      width: 340px; //300px i expanderat läge?
       height: 400px;
       border-radius: $radius;
       position: absolute;
       top: $top0;
       left: $left0;
       z-index: 1;
+      pointer-events: none;
+
+      &.expanded {
+         width: 300px !important;
+      }
+      @include transition(width, $duration: 0.6s, $ease: ease-in-out);
+   }
+   .image-element {
+      width: 100%;
+      height: 100%;
+      border-radius: $radius;
+      object-fit: cover;
+      border: $nav-border-black;
    }
    .web-assets {
       width: 100%; //vid mobile-assets anta flex-direction
@@ -90,10 +124,66 @@ div {
       align-items: center;
       position: absolute;
       z-index: 3;
-      top: 10px;
+      top: 20px;
+      pointer-events: none;
 
       div {
          @include web-asset-styles;
       }
+      &.expanded {
+         display: none;
+      }
+   }
+
+   .project-description-container {
+      width: 650px;
+      max-height: 400px;
+      overflow-y: auto; //fasthöjd i kombination med overflow-y skapar srollbar för textinnehållet.
+      display: none; //dold initialt
+      flex-direction: column;
+      padding-left: 10px;
+      padding-right: 15px;
+      transition: opacity 1s ease, visibility 0.4s ease;
+      @include transition(width, $duration: 0.7s, $ease: ease-in-out);
+
+      &.expanded {
+         display: flex;
+         opacity: 1; // Gör det synligt
+         visibility: visible; // Gör det synligt
+      }
+      .web-assets-copy {
+         display: flex;
+         width: 100%;
+         height: auto;
+
+         div {
+            @include web-asset-styles;
+            height: 16px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            padding: 10px 13px;
+            &:first-child {
+               margin-left: 0px;
+            }
+         }
+      }
+   }
+   .project-name {
+      font-size: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 0px;
+   }
+
+   .small-heading {
+      font-size: 17px;
+      font-family: Arial, Helvetica, sans-serif;
+   }
+   .description-paragraph {
+      white-space: normal !important;
+      word-wrap: break-word !important;
+      overflow: hidden;
+      margin: 10px 0px;
+      font-size: 14px;
    }
 }
