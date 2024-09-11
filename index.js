@@ -116,6 +116,50 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //functions for header and nav ended
 
+// projectsData.forEach((project, index) => {
+//    createProjectContainer(project);
+//    console.log("Skapar projektcontainer för:", project.name);
+
+//    document
+//       .querySelectorAll(".project-container")
+//       .forEach((projectContainer, i) => {
+//          projectContainer.addEventListener("click", function () {
+//             this.classList.toggle("expanded");
+//             console.log(`Clicked on project ${i}`);
+
+//             const description = this.querySelector(
+//                ".project-description-container"
+//             );
+//             if (description) {
+//                console.log(`Toggling description for project ${i}`);
+//                description.classList.toggle("expanded");
+//             }
+//          });
+//       });
+// });
 projectsData.forEach((project) => {
    createProjectContainer(project);
+
+   document
+      .querySelectorAll(".project-container")
+      .forEach((projectContainer, i) => {
+         // Ta bort tidigare event listeners om det är ett problem
+         projectContainer.removeEventListener("click", handleProjectClick);
+
+         projectContainer.addEventListener("click", handleProjectClick);
+      });
 });
+//methoden array.from() och index.of() ger en detaljerat förståelse över inblandade element i en array.
+function handleProjectClick() {
+   this.classList.toggle("expanded");
+   const index = Array.from(
+      document.querySelectorAll(".project-container")
+   ).indexOf(this);
+   console.log(`Clicked on project ${index}`);
+
+   const description = this.querySelector(".project-description-container");
+   if (description) {
+      console.log(`Toggling description for project ${index}`);
+      description.classList.toggle("expanded");
+   }
+}
