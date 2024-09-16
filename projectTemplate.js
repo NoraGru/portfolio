@@ -109,3 +109,41 @@ export function createProjectContainer(project) {
    const projectSlide = document.getElementById("project-slide");
    projectSlide.appendChild(projectContainer);
 }
+
+export function toggleProjectElements(classSelector, index) {
+   const description = this.querySelector(
+      `${classSelector} ".project-description-container`
+   );
+
+   if (description) {
+      console.log(`Toggling description for project ${index}`);
+      description.classList.toggle("expanded");
+   }
+   const overlay = document.querySelector(`${classSelector} .overlay`);
+   if (overlay) {
+      console.log(`Toggling overlay display for project ${index}`);
+      overlay.classList.toggle("expanded");
+   }
+
+   const projectImg = document.querySelector(`${classSelector} .project-img`);
+   if (projectImg) {
+      console.log(`Toggling project-img size for project ${index}`);
+      projectImg.classList.toggle("expanded");
+   }
+
+   const projectContentContainer = document.querySelector(
+      `${classSelector} .project-content-container`
+   );
+   if (projectContentContainer) {
+      console.log(
+         `Toggling project content container width for project ${index}`
+      );
+      projectContentContainer.classList.toggle("expanded");
+   }
+
+   const webAssets = document.querySelector(`${classSelector} .web-assets`);
+   if (webAssets) {
+      console.log(`Toggling web-assets display for project ${index}`);
+      webAssets.classList.toggle("expanded");
+   }
+}
