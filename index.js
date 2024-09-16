@@ -128,49 +128,60 @@ projectsData.forEach((project) => {
          projectContainer.addEventListener("click", handleProjectClick);
       });
 });
-//methoden array.from() and index.of() gives a detaild understanding of an element index array.
+function toggleElements(container, selectors, className) {
+   selectors.forEach((selector) => {
+      const element = container.querySelector(selector);
+      if (element) {
+         element.classList.toggle(className);
+      }
+   });
+}
 function handleProjectClick() {
+   const allProjectContainers = document.querySelectorAll(".project-container");
+   const isCurrentlyExpanded = this.classList.contains("expanded");
+
+   // Stäng alla andra expanderade containrar
+   allProjectContainers.forEach((container) => {
+      if (container !== this && container.classList.contains("expanded")) {
+         container.classList.remove("expanded");
+
+         // Stäng relaterade element i den stängda containern
+         toggleElements(
+            container,
+            [
+               ".project-description-container",
+               ".overlay",
+               ".project-img",
+               ".project-content-container",
+               ".web-assets",
+            ],
+            "expanded"
+         );
+      }
+   });
+
+   // Toggle den aktuella containern
    this.classList.toggle("expanded");
-   const index = Array.from(
-      document.querySelectorAll(".project-container")
-   ).indexOf(this);
+
+   const index = Array.from(allProjectContainers).indexOf(this);
    console.log(`Clicked on project ${index}`);
 
-   const description = this.querySelector(".project-description-container");
-
-   if (description) {
-      console.log(`Toggling description for project ${index}`);
-      description.classList.toggle("expanded");
-   }
-   const overlay = this.querySelector(".overlay");
-
-   console.log(`toggle overlay display:none fo this project ${index}`);
-   if (overlay) {
-      overlay.classList.toggle("expanded");
-   }
-
-   // Hämta project-img och toggla expanded på den
-   const projectImg = this.querySelector(".project-img");
-   if (projectImg) {
-      console.log(`Toggling project-img size for project ${index}`);
-      projectImg.classList.toggle("expanded");
-   }
-
-   const projectContentContainer = this.querySelector(
-      ".project-content-container"
+   // Toggle relaterade element i den aktuella containern
+   toggleElements(
+      this,
+      [
+         ".project-description-container",
+         ".overlay",
+         ".project-img",
+         ".project-content-container",
+         ".web-assets",
+      ],
+      "expanded"
    );
-   if (projectContentContainer) {
-      console.log(`toggle projctcontentContainer width for ${index}`);
-      projectContentContainer.classList.toggle("expanded");
-   }
-
-   const webAssets = this.querySelector(".web-assets");
-
-   if (webAssets) {
-      console.log(`toggle expand display none for ${index}`);
-      webAssets.classList.toggle("expanded");
-   }
 }
+
+//methoden array.from() and index.of() gives a detaild understanding of an element index array.
+
 //addera funktioner
 //om en projektcontainer är öppen medans en annan öppnas, stäng den andra innan
 //project desciption, börja alltid högst upp
