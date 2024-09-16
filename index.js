@@ -1,5 +1,8 @@
 import { projectsData } from "./projectsData.js";
-import { createProjectContainer } from "./projectTemplate.js";
+import {
+   toggleProjectElements,
+   createProjectContainer,
+} from "./projectTemplate.js";
 
 document.addEventListener("DOMContentLoaded", () => {
    const navItem = document.querySelectorAll(".nav__item");
@@ -124,7 +127,6 @@ projectsData.forEach((project) => {
       .forEach((projectContainer, i) => {
          // remove any clickevents before adding clickevent (debug sulotion)
          projectContainer.removeEventListener("click", handleProjectClick);
-
          projectContainer.addEventListener("click", handleProjectClick);
       });
 });
@@ -148,8 +150,6 @@ function handleProjectClick() {
    if (overlay) {
       overlay.classList.toggle("expanded");
    }
-
-   // Hämta project-img och toggla expanded på den
    const projectImg = this.querySelector(".project-img");
    if (projectImg) {
       console.log(`Toggling project-img size for project ${index}`);
@@ -174,3 +174,8 @@ function handleProjectClick() {
 //addera funktioner
 //om en projektcontainer är öppen medans en annan öppnas, stäng den andra innan
 //project desciption, börja alltid högst upp
+//addera git symbol med länk till gitHub
+//hur ska man kunna se sidan i storbild?
+//design för pekare
+//fixa färg på pilarna för bättre interaktion
+//designa en snyggare scrollbar
