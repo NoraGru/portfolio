@@ -1,8 +1,5 @@
 import { projectsData } from "./projectsData.js";
-import {
-   toggleProjectElements,
-   createProjectContainer,
-} from "./projectTemplate.js";
+import { createProjectContainer } from "./projectTemplate.js";
 
 document.addEventListener("DOMContentLoaded", () => {
    const navItem = document.querySelectorAll(".nav__item");
@@ -40,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "#nav-education-tab .tab-content h1"
    );
 
-   //function for toggle styles between open and close.
+   //function for toggle styles between open and close.(...spread-operation makes the function take countless of arguments and collect it to an array)
    function toggelStyleOpenClosed(...h1Elements) {
       console.log("Function called with:", h1Elements);
       h1Elements.forEach((h1) => {
@@ -181,10 +178,7 @@ function handleProjectClick() {
    );
 }
 
-//methoden array.from() and index.of() gives a detaild understanding of an element index array.
-
 //addera funktioner
-//om en projektcontainer är öppen medans en annan öppnas, stäng den andra innan
 //project desciption, börja alltid högst upp
 //addera git symbol med länk till gitHub
 //hur ska man kunna se sidan i storbild?
