@@ -28,5 +28,24 @@
    height: 20px; /* Sätt höjd för att centrera vertikalt */
    text-align: center; /* Centrera text horisontellt */
 }
+@mixin respond-to($breakpoint) {
+   @if $breakpoint == small {
+      @media (max-width: 600px) {
+         @content;
+      }
+   } @else if $breakpoint == medium {
+      @media (max-width: 900px) {
+         @content;
+      }
+   } @else if $breakpoint == large {
+      @media (max-width: 1200px) {
+         @content;
+      }
+   } @else if $breakpoint == custom {
+      @media (max-width: 951px) {
+         @content;
+      }
+   }
+}
 
 // @mixin contentContainer();
