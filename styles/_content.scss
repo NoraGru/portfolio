@@ -94,19 +94,19 @@ div {
       }
    }
    .project-img {
-      width: 340px; //300px i expanderat läge?
-      height: 400px;
+      width: 100%; //300px i expanderat läge?
+      height: 100%;
       border-radius: $radius;
       position: absolute;
       top: $top0;
       left: $left0;
       z-index: 1;
       pointer-events: none;
+      @include transition(width, $duration: 0.6s, $ease: ease-in-out);
 
       &.expanded {
-         width: 300px !important;
+         width: 300px;
       }
-      @include transition(width, $duration: 0.6s, $ease: ease-in-out);
    }
    .image-element {
       width: 100%;
@@ -143,9 +143,7 @@ div {
       flex-direction: column;
       padding-left: 10px;
       padding-right: 15px;
-      transition: opacity 1s ease, visibility 0.4s ease;
-      @include transition(width, $duration: 0.7s, $ease: ease-in-out);
-
+      transition: width 0.7s ease-in-out, opacity 1s ease, visibility 0.4s ease;
       &.expanded {
          display: flex;
          opacity: 1; // Gör det synligt
@@ -168,11 +166,29 @@ div {
             }
          }
       }
-   }
-   .project-name {
-      font-size: 30px;
-      font-family: Arial, Helvetica, sans-serif;
-      margin-bottom: 0px;
+      .project-header-container {
+         display: flex !important;
+         justify-content: space-between !important;
+         align-items: center !important;
+         margin-top: 20px !important;
+      }
+      .project-name {
+         width: 50%;
+         font-size: 30px;
+         font-family: Arial, Helvetica, sans-serif;
+         margin-bottom: 0px;
+         margin-top: 0px;
+      }
+
+      .github-link {
+         margin-top: 10px;
+         color: black;
+         text-decoration: none;
+      }
+      .github-icon {
+         width: 25px;
+         height: 25px;
+      }
    }
 
    .small-heading {
@@ -186,4 +202,9 @@ div {
       margin: 10px 0px;
       font-size: 14px;
    }
+   .project-header-container {
+      background-color: red($color: #000000);
+   }
 }
+// #slide-school-projects {
+// }
