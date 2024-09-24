@@ -10,6 +10,7 @@ export const projectsData = [
       gainedKnowledge:
          "Improved understanding of CSS Flexbox, Grid, and async JavaScript.",
       imgSrc: "images/spotifycloneimage.png",
+      githubLink: "",
    },
    {
       name: "STIG wear",
@@ -21,6 +22,7 @@ export const projectsData = [
       gainedKnowledge:
          "Projektet var ett ypperlig tillfälle att öva på att göra responsiv design, bekanda mig med Figma och öva på Javascript och CSS.",
       imgSrc: "images/stigwearimg.png",
+      githubLink: "",
    },
    {
       name: "Portfolio",
@@ -32,6 +34,7 @@ export const projectsData = [
       gainedKnowledge:
          "användningen av sass, djupare förståelse för javascript och vikten av att designa en bra grund innan man börjar koda. Bekantat mig med Git och hur man använder det för commits under projektets gång",
       imgSrc: "images/portfolio.png",
+      githubLink: "",
    },
    {
       name: "Project 4",
@@ -40,6 +43,7 @@ export const projectsData = [
       reflections: "reflektera över projektets gång",
       gainedKnowledge: "vad lärde jag mig?",
       imgSrc: "",
+      githubLink: "",
    },
    //    addera projekt här
 ];

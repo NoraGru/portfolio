@@ -43,11 +43,39 @@ export function createProjectContainer(project) {
 
    const descriptionContainer = document.createElement("div");
    descriptionContainer.classList.add("project-description-container");
+   console.log(descriptionContainer);
+
+   const projectHeaderContainer = document.createElement("div");
+   projectHeaderContainer.classList.add("project-header-container");
+
+   descriptionContainer.appendChild(projectHeaderContainer);
 
    //create project heading
    const projectName = document.createElement("h1");
    projectName.classList.add("project-name");
    projectName.textContent = project.name;
+
+   projectHeaderContainer.appendChild(projectName);
+
+   //create container for link and img
+   const githubLinkContainer = document.createElement("div");
+   githubLinkContainer.classList.add("githublink-container");
+
+   //create link to gitHub
+   const githubLink = document.createElement("a");
+   githubLink.classList.add("github-link");
+   githubLink.setAttribute("href", project.githubLink);
+   githubLink.setAttribute("target", "_blank");
+
+   const gitHubIcon = document.createElement("img");
+   gitHubIcon.setAttribute("src", "./images/GithubBlack.png");
+   gitHubIcon.setAttribute("alt", "github link");
+   gitHubIcon.classList.add("github-icon");
+
+   githubLink.appendChild(gitHubIcon);
+   githubLinkContainer.appendChild(githubLink);
+   projectHeaderContainer.appendChild(githubLinkContainer);
+
    //create webassets container
    const webAssetsCopy = document.createElement("div");
    webAssetsCopy.classList.add("web-assets-copy");
@@ -58,7 +86,6 @@ export function createProjectContainer(project) {
       webAssetsCopy.appendChild(assetDiv);
    });
 
-   descriptionContainer.appendChild(projectName);
    descriptionContainer.appendChild(webAssetsCopy);
 
    //create project description textcontent container
