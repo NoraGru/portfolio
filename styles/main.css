@@ -208,8 +208,8 @@ div .portfolio-heading {
   display: none !important;
 }
 .project-container .project-img {
-  width: 340px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   position: absolute;
   top: 0;
@@ -219,7 +219,7 @@ div .portfolio-heading {
   transition: width 0.6s ease-in-out;
 }
 .project-container .project-img.expanded {
-  width: 300px !important;
+  width: 300px;
 }
 .project-container .image-element {
   width: 100%;
@@ -266,8 +266,7 @@ div .portfolio-heading {
   flex-direction: column;
   padding-left: 10px;
   padding-right: 15px;
-  transition: opacity 1s ease, visibility 0.4s ease;
-  transition: width 0.7s ease-in-out;
+  transition: width 0.7s ease-in-out, opacity 1s ease, visibility 0.4s ease;
 }
 .project-container .project-description-container.expanded {
   display: flex;
@@ -302,10 +301,27 @@ div .portfolio-heading {
 .project-container .project-description-container .web-assets-copy div:first-child {
   margin-left: 0px;
 }
-.project-container .project-name {
+.project-container .project-description-container .project-header-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-top: 20px !important;
+}
+.project-container .project-description-container .project-name {
+  width: 50%;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 0px;
+  margin-top: 0px;
+}
+.project-container .project-description-container .github-link {
+  margin-top: 10px;
+  color: black;
+  text-decoration: none;
+}
+.project-container .project-description-container .github-icon {
+  width: 25px;
+  height: 25px;
 }
 .project-container .small-heading {
   font-size: 17px;
@@ -317,6 +333,9 @@ div .portfolio-heading {
   overflow: hidden;
   margin: 10px 0px;
   font-size: 14px;
+}
+.project-container .project-header-container {
+  background-color: 0;
 }
 
 .footer {
