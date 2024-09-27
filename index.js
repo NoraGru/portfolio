@@ -1,8 +1,12 @@
 import { projectsData } from "./projectsData.js";
-import { createProjectContainer } from "./projectTemplate.js";
+import { otherProjectsData } from "./otherProjectsData.js";
+import {
+   createProjectContainer,
+   createOtherProjectContainer,
+} from "./projectTemplate.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-   const navItem = document.querySelectorAll(".nav__item");
+   // const navItem = document.querySelectorAll(".nav__item");
    const startTab = document.getElementById("nav-start");
    const workTab = document.getElementById("nav-work-tab");
    const educationTab = document.getElementById("nav-education-tab");
@@ -116,17 +120,40 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //functions for header and nav ended
 
-projectsData.forEach((project) => {
-   createProjectContainer(project);
+const projectSlides = document.querySelectorAll(".project-slide");
+const projectSlideArray = [...projectSlides];
+console.log(projectSlideArray);
 
+projectsData.forEach((project, index) => {
+   const projectContainer = createProjectContainer(project);
+   console.log("project kontent övre slide", projectContainer, index);
+   if (projectSlideArray[0]) {
+      projectSlideArray[0].appendChild(projectContainer);
+   } else {
+      console.error("den första project-sliden kunde inte hittas.");
+   }
+});
+otherProjectsData.forEach((project, index) => {
+   const otherProjectContainer = createOtherProjectContainer(project);
+   console.log(otherProjectContainer);
+   console.log("project kontent undre slide", otherProjectContainer, index);
+   if (projectSlideArray[1]) {
+      projectSlideArray[1].appendChild(otherProjectContainer);
+   } else {
+      console.error("den andra project-sliden kunde inte hittas");
+   }
+});
+function addClickEventToProject() {
    document
       .querySelectorAll(".project-container")
-      .forEach((projectContainer, i) => {
-         // remove any clickevents before adding clickevent (debug sulotion)
+      .forEach((projectContainer) => {
+         //tar bort event-lyssnare för att unvika dubblering
          projectContainer.removeEventListener("click", handleProjectClick);
          projectContainer.addEventListener("click", handleProjectClick);
       });
-});
+}
+addClickEventToProject();
+
 function toggleElements(container, selectors, className) {
    selectors.forEach((selector) => {
       const element = container.querySelector(selector);
