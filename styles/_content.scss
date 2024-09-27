@@ -12,21 +12,20 @@
    font-size: $content-font-size;
    font-family: $primary-font;
 }
-//styles for main-content banner ended
 
-div {
-   .portfolio-heading {
-      margin-left: 60px;
-      margin-right: 60px;
-      padding-left: $nav-padding-left;
-      border-bottom: $nav-border-black;
-      font-size: $mainH1;
-   }
+// styles for main-content banner ended
+
+.portfolio-heading {
+   margin-left: 60px;
+   margin-right: 60px;
+   padding-left: $nav-padding-left;
+   border-bottom: $nav-border-black;
+   font-size: $mainH1;
 }
 
 .own-projects {
    max-width: 1400px;
-   height: 543px;
+   height: auto;
    margin: 60px auto;
    padding: 0px 20px;
    overflow: hidden;
@@ -36,19 +35,53 @@ div {
       margin-bottom: 20px;
       font-size: $fontsize-h2;
    }
-   #project-slide {
+
+   .project-slide {
       width: auto;
-      height: 440px;
+      height: auto;
       white-space: nowrap;
       display: flex;
       gap: 30px;
       overflow-x: auto;
       scroll-behavior: auto;
       scroll-snap-type: x mandatory;
+      margin-bottom: 60px;
    }
 }
+
+.other-projects-container {
+   max-width: 600px;
+   min-width: 300px;
+   width: 25%; // 25% grundinställning
+   height: 400px;
+   margin-bottom: 20px;
+   flex-shrink: 0;
+   display: flex;
+   border: $nav-border-black;
+   border-radius: $radius;
+   cursor: pointer;
+   @include transition(width, $duration: 0.7s, $ease: ease-in-out);
+
+   &.expanded {
+      width: 100%;
+      scroll-snap-align: center;
+   }
+}
+
+#size-ajustments {
+   max-width: 700px;
+   min-width: 300px;
+   width: 20%;
+   height: 300px;
+
+   &.expanded {
+      width: 100%;
+      scroll-snap-align: center;
+   }
+}
+
 .project-container {
-   max-width: 950px; //ökar i js vid klick
+   max-width: 950px; // ökar i js vid klick
    min-width: 300px;
    width: 25%; // 25% grundinställning
    height: 400px;
@@ -66,7 +99,7 @@ div {
    }
 
    .project-content-container {
-      width: 100%; //100% i ett icke expanderat läge, 300px i ett expanderat
+      width: 100%; // 100% i ett icke expanderat läge, 300px i ett expanderat
       height: 100%;
       border-radius: $radius;
       position: relative;
@@ -86,15 +119,16 @@ div {
       border-radius: $radius;
       position: absolute;
       z-index: 2;
-      pointer-events: none; //tillåter clickevent att gå igenom overlay
+      pointer-events: none; // tillåter clickevent att gå igenom overlay
 
       // När containern är expanderad
       &.expanded {
          display: none !important;
       }
    }
+
    .project-img {
-      width: 100%; //300px i expanderat läge?
+      width: 100%; // 300px i expanderat läge?
       height: 100%;
       border-radius: $radius;
       position: absolute;
@@ -106,17 +140,30 @@ div {
 
       &.expanded {
          width: 300px;
+         #element-size-adjustment {
+            width: 200px;
+            @include transition(width, $duration: 0.6s, $ease: ease-in-out);
+         }
+      }
+
+      @include respond-to(custom) {
+         &.expanded {
+            width: 270px !important;
+         }
       }
    }
+
    .image-element {
+      max-width: 340px; // beroende på vilket beteende som bli snyggast vid stängning av div
       width: 100%;
       height: 100%;
       border-radius: $radius;
       object-fit: cover;
       border: $nav-border-black;
    }
+
    .web-assets {
-      width: 100%; //vid mobile-assets anta flex-direction
+      width: 100%; // vid mobile-assets anta flex-direction
       height: auto;
       display: flex;
       flex-wrap: wrap;
@@ -130,6 +177,7 @@ div {
       div {
          @include web-asset-styles;
       }
+
       &.expanded {
          display: none;
       }
@@ -138,17 +186,19 @@ div {
    .project-description-container {
       width: 650px;
       max-height: 400px;
-      overflow-y: auto; //fasthöjd i kombination med overflow-y skapar srollbar för textinnehållet.
-      display: none; //dold initialt
+      overflow-y: auto; // fasthöjd i kombination med overflow-y skapar srollbar för textinnehållet.
+      display: none; // dold initialt
       flex-direction: column;
       padding-left: 10px;
       padding-right: 15px;
       transition: width 0.7s ease-in-out, opacity 1s ease, visibility 0.4s ease;
+
       &.expanded {
          display: flex;
          opacity: 1; // Gör det synligt
          visibility: visible; // Gör det synligt
       }
+
       .web-assets-copy {
          display: flex;
          width: 100%;
@@ -161,17 +211,20 @@ div {
             margin-top: 10px;
             margin-bottom: 15px;
             padding: 10px 13px;
+
             &:first-child {
                margin-left: 0px;
             }
          }
       }
+
       .project-header-container {
          display: flex !important;
          justify-content: space-between !important;
          align-items: center !important;
          margin-top: 20px !important;
       }
+
       .project-name {
          width: 50%;
          font-size: 30px;
@@ -185,6 +238,7 @@ div {
          color: black;
          text-decoration: none;
       }
+
       .github-icon {
          width: 25px;
          height: 25px;
@@ -195,6 +249,7 @@ div {
       font-size: 17px;
       font-family: Arial, Helvetica, sans-serif;
    }
+
    .description-paragraph {
       white-space: normal !important;
       word-wrap: break-word !important;
@@ -202,9 +257,11 @@ div {
       margin: 10px 0px;
       font-size: 14px;
    }
+
    .project-header-container {
       background-color: red($color: #000000);
    }
 }
+
 // #slide-school-projects {
 // }

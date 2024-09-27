@@ -135,7 +135,7 @@
   font-family: Arial;
 }
 
-div .portfolio-heading {
+.portfolio-heading {
   margin-left: 60px;
   margin-right: 60px;
   padding-left: 60px;
@@ -145,7 +145,7 @@ div .portfolio-heading {
 
 .own-projects {
   max-width: 1400px;
-  height: 543px;
+  height: auto;
   margin: 60px auto;
   padding: 0px 20px;
   overflow: hidden;
@@ -155,15 +155,45 @@ div .portfolio-heading {
   margin-bottom: 20px;
   font-size: 30px;
 }
-.own-projects #project-slide {
+.own-projects .project-slide {
   width: auto;
-  height: 440px;
+  height: auto;
   white-space: nowrap;
   display: flex;
   gap: 30px;
   overflow-x: auto;
   scroll-behavior: auto;
   scroll-snap-type: x mandatory;
+  margin-bottom: 60px;
+}
+
+.other-projects-container {
+  max-width: 600px;
+  min-width: 300px;
+  width: 25%;
+  height: 400px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: width 0.7s ease-in-out;
+}
+.other-projects-container.expanded {
+  width: 100%;
+  scroll-snap-align: center;
+}
+
+#size-ajustments {
+  max-width: 700px;
+  min-width: 300px;
+  width: 20%;
+  height: 300px;
+}
+#size-ajustments.expanded {
+  width: 100%;
+  scroll-snap-align: center;
 }
 
 .project-container {
@@ -221,7 +251,17 @@ div .portfolio-heading {
 .project-container .project-img.expanded {
   width: 300px;
 }
+.project-container .project-img.expanded #element-size-adjustment {
+  width: 200px;
+  transition: width 0.6s ease-in-out;
+}
+@media (max-width: 951px) {
+  .project-container .project-img.expanded {
+    width: 270px !important;
+  }
+}
 .project-container .image-element {
+  max-width: 340px;
   width: 100%;
   height: 100%;
   border-radius: 10px;
