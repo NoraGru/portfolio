@@ -132,7 +132,113 @@ export function createProjectContainer(project) {
    descriptionContainer.appendChild(description);
 
    projectContainer.appendChild(descriptionContainer);
+   return projectContainer;
+}
 
-   const projectSlide = document.getElementById("project-slide");
-   projectSlide.appendChild(projectContainer);
+// function for creating other projects
+
+export function createOtherProjectContainer(project) {
+   // create main project container
+   const projectContainer = document.createElement("div");
+   projectContainer.classList.add("project-container");
+   projectContainer.id = "size-ajustments";
+   //create content container
+   const contentContainer = document.createElement("div");
+   contentContainer.classList.add("project-content-container");
+   //create overlay div
+   const overlay = document.createElement("div");
+   overlay.classList.add("overlay");
+   //create img container
+   const projectImg = document.createElement("div");
+   projectImg.classList.add("project-img");
+
+   // create img-element
+   const imgElement = document.createElement("img");
+   imgElement.classList.add("image-element");
+   imgElement.id = "element-size-adjustment";
+   imgElement.src = project.imgSrc;
+   projectImg.appendChild(imgElement);
+
+   //create webassets container
+   const webAssets = document.createElement("div");
+   webAssets.classList.add("web-assets");
+   //
+   project.technologies.forEach((tech) => {
+      const assetDiv = document.createElement("div");
+      assetDiv.textContent = tech;
+      webAssets.appendChild(assetDiv);
+   });
+
+   contentContainer.appendChild(overlay);
+   contentContainer.appendChild(projectImg);
+   contentContainer.appendChild(webAssets);
+   projectContainer.appendChild(contentContainer);
+
+   //project description container
+
+   const descriptionContainer = document.createElement("div");
+   descriptionContainer.classList.add("project-description-container");
+   console.log(descriptionContainer);
+
+   const projectHeaderContainer = document.createElement("div");
+   projectHeaderContainer.classList.add("project-header-container");
+
+   descriptionContainer.appendChild(projectHeaderContainer);
+
+   //create project heading
+   const projectName = document.createElement("h1");
+   projectName.classList.add("project-name");
+   projectName.textContent = project.name;
+
+   projectHeaderContainer.appendChild(projectName);
+
+   //create container for link and img
+   const githubLinkContainer = document.createElement("div");
+   githubLinkContainer.classList.add("githublink-container");
+
+   //create link to gitHub
+   const githubLink = document.createElement("a");
+   githubLink.classList.add("github-link");
+   githubLink.setAttribute("href", project.githubLink);
+   githubLink.setAttribute("target", "_blank");
+
+   const gitHubIcon = document.createElement("img");
+   gitHubIcon.setAttribute("src", "./images/GithubBlack.png");
+   gitHubIcon.setAttribute("alt", "github link");
+   gitHubIcon.classList.add("github-icon");
+
+   githubLink.appendChild(gitHubIcon);
+   githubLinkContainer.appendChild(githubLink);
+   projectHeaderContainer.appendChild(githubLinkContainer);
+
+   //create webassets container
+   const webAssetsCopy = document.createElement("div");
+   webAssetsCopy.classList.add("web-assets-copy");
+
+   project.technologies.forEach((tech) => {
+      const assetDiv = document.createElement("div");
+      assetDiv.textContent = tech;
+      webAssetsCopy.appendChild(assetDiv);
+   });
+
+   descriptionContainer.appendChild(webAssetsCopy);
+
+   //create project description textcontent container
+   const description = document.createElement("div");
+   description.classList.add("description");
+
+   // create heading for section of description titel
+   const descriptionTitel = document.createElement("h3");
+   descriptionTitel.classList.add("small-heading");
+   descriptionTitel.textContent = "Project description";
+
+   //create paragraph for text content
+   const descriptionText = document.createElement("p");
+   descriptionText.classList.add("description-paragraph");
+   descriptionText.textContent = project.description;
+
+   description.appendChild(descriptionTitel);
+   description.appendChild(descriptionText);
+
+   return projectContainer;
 }
